@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LOEC Contingência</title>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            border-style: none;
+        }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>  
+<script type="text/javascript">
+    $(document).ready(function () {
+        var input = '<label style="display: block">Objeto: ';
+        input += '<input  type="text" maxlength="16" size="180px" disable style="width:220px;';
+        input += 'font-size:280%; font-family:C39HrP24DhTt; height: 65px; border-style:none"; accesskey="a" title="Alt+Shift+A" ;/>';
+        input += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AR';
+        input += '<input type="checkbox"; accesskey="5"; title="Alt+5"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MP<input type="checkbox"; accesskey="6" title="Alt+6"/>';
+        input += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DD<input type="checkbox" accesskey="7"; title="Alt+7"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OD';
+        input += '<input type="checkbox" accesskey="8"; title="Alt+8"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="#" class="remove" accesskey="x"; title="Alt+X">X</a><br />';
+        input += 'D e s t i n a t á r i o:<input type="text" style="width: 280px; border-style:none"; accesskey="1" title="Alt+1"/>';
+        input += '<br />E n d e r e ç o:<input type="text" style="width: 310px; border-style:none" accesskey="2"; title="Alt+2"/><br />Doc. Identidade:<br />';
+        input += 'Nome Legível ou motivo de não entrega:_________________________________________</label>';
+        $("input[name='add']").click(function (e) {
+            $('#inputs_adicionais').append(input);
+        });
+
+        $('#inputs_adicionais').delegate('a', 'click', function (e) {
+            e.preventDefault();
+            $(this).parent('label').remove();
+        });
+
+        $(document).ready(function () {
+
+            var agrupado = '<label style="display: block">Objeto: ';
+            agrupado += '<input  type="text" maxlength="16" size="180px" disable style="width:220px;';
+            agrupado += 'font-size:280%; font-family:C39HrP24DhTt; height: 65px; border-style:none"; accesskey="a" title="Alt+Shift+A" />';
+            agrupado += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AR';
+            agrupado += '<input type="checkbox"; accesskey="5"; title="Alt+5"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MP<input type="checkbox"; accesskey="6" title="Alt+6"/>';
+            agrupado += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DD<input type="checkbox" accesskey="7"; title="Alt+7"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OD';
+            agrupado += '<input type="checkbox" accesskey="8"; title="Alt+8"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp';
+            agrupado += '<a href="#" class="remove" accesskey="x"; title="Alt+X">X</a></label>';
+
+            $("input[name='agr']").click(function (e) {
+                $('#inputs_adicionais').append(agrupado);
+            });
+        });
+
+        $('#inputs_agrup').delegate('a', 'click', function (e) {
+            e.preventDefault();
+            $(this).parent('label').remove();
+        });
+
+    });
+    function validar(input) {
+    };
+</script>
+</head>
+<body onkeydown="Atalho()" ;>
+    <div>
+        <table class="style1">
+            <tr>
+                <td >
+                    LOEC CONTINGÊNCIA
+                </td>
+                <td >
+                    
+                        Assinatura Carteiro:________________________
+                        <input type="text" style="width: 200px;" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style2" >
+                    Distrito:
+                    <input id="txtDistrito" type="text" maxlength="3" />
+                </td>
+                <td class="style2" >
+                    <br />
+                    
+                        Assinatura Lançador:________________________
+                        <input type="text" style="width: 200px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <form action="" method="post" id="form1">
+            
+            <label style="display: block"></label>
+            
+        <input type="button" name="add" value="Z" accesskey="z" title="Alt+Z"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" name="agr" value="Agrupado" accesskey="s" title="Alt+S" />
+    <br />
+    <br />
+    &nbsp;<fieldset id="inputs_adicionais" style="border: none">  
+        </fieldset>
+        
+    </form>
+</body>
+</html>
